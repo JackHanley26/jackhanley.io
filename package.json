@@ -1,0 +1,25 @@
+{
+  "name": "jackhanley.io",
+  "version": "1.0.0",
+  "description": "Personal website for Jack Hanley",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JackHanley26/jackhanley.io.git"
+  },
+  "author": "Jack Hanley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JackHanley26/jackhanley.io/issues"
+  },
+  "homepage": "https://github.com/JackHanley26/jackhanley.io#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
