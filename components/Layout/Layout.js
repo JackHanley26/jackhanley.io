@@ -23,18 +23,22 @@ class Layout extends Component {
 
   render() {
     return (
-      <div>
+      <div className="dark-background">
+        <head>
+          <title>Jack Hanley IO</title>
+        </head>
         <header>
-          <nav className="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+          <nav className="navbar is-fixed-top dark-background" role="navigation" aria-label="main navigation">
 
             <div className="navbar-brand">
               <Link prefetch href="/">
-              <a className="navbar-item">
-                <img src="/static/logo.png"/>
-              </a>
+                <a className="navbar-item">
+                  <img className="primary-font-color" src="/static/logo_2.png"/>
+                </a>
               </Link>
               <a id="burger" onClick={(e) => this.toggleStyles(e)}
-                 role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                 role="button" className="navbar-burger burger primary-font-color" aria-label="menu"
+                 aria-expanded="false"
                  data-target="navbarmenu">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -43,21 +47,14 @@ class Layout extends Component {
             </div>
 
 
-            <div id="navbarmenu" className="navbar-menu">
+            <div id="navbarmenu" className="navbar-menu dark-background">
               <div className="navbar-start">
                 {routing.routes.map(route => (
                   <Link prefetch href={route.path}>
-                    <a className="navbar-item">{route.label}</a>
+                    <a className="navbar-item primary-font-color">{route.label}</a>
                   </Link>
                 ))}
               </div>
-            {/*<div className="navbar-end">
-                <div className="navbar-item">
-                  <div className="buttons">
-                    <a onClick={() => alert('You clicked the button!')} className="button is-primary">Click</a>
-                  </div>
-                </div>
-              </div>*/}
             </div>
 
           </nav>
@@ -67,11 +64,11 @@ class Layout extends Component {
         {this.props.children}
 
 
-        <footer className="footer">
+        {/*        <footer className="footer">
           <div className="content has-text-centered">
             <span>I'm the footer</span>
           </div>
-        </footer>
+        </footer>*/}
       </div>
     )
   }

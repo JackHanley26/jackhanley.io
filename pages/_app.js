@@ -1,24 +1,28 @@
 import React from 'react'
 import App, {Container} from 'next/app'
 
-export default class MyApp extends App {
+class MyApp extends App {
 
-    static async getInitialProps({Component, router, ctx}) {
-        let pageProps = {};
+  // commenting this because it's not used (Opt-out of Automatic Prerendering)
 
-        if (Component.getInitialProps) {
-            pageProps = await Component.getInitialProps(ctx)
-        }
+  /*static async getInitialProps({Component, router, ctx}) {
+    let pageProps = {};
 
-        return {pageProps}
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
     }
 
-    render() {
-        const {Component, pageProps} = this.props;
-        return (
-            <Container>
-                <Component {...pageProps} />
-            </Container>
-        )
-    }
+    return {pageProps}
+  }*/
+
+  render() {
+    const {Component, pageProps} = this.props;
+    return (
+      <Container>
+        <Component {...pageProps} />
+      </Container>
+    )
+  }
 }
+
+export default MyApp;

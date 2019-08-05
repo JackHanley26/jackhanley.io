@@ -11,8 +11,8 @@ export default class MyDocument extends Document {
     return (
       <html>
       <Head>
-        <title>Jack Hanley IO</title>
         <link rel="icon" href="../static/logo.png"/>
+        {/*<link rel="stylesheet" href="https://unpkg.com/bulmaswatch/darkly/bulmaswatch.min.css"/>*/}
         <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
       </Head>
       <body className="custom_class">
