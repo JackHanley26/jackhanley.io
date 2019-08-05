@@ -33,7 +33,7 @@ class Layout extends Component {
             <div className="navbar-brand">
               <Link prefetch href="/">
                 <a className="navbar-item">
-                  <img className="primary-font-color" src="/static/logo_2.png"/>
+                  <img className="primary-font-color" src="/static/logo.png"/>
                 </a>
               </Link>
               <a id="burger" onClick={(e) => this.toggleStyles(e)}
