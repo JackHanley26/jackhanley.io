@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import Head from 'next/head'
 import Link from 'next/link'
 import '../../styles/styles.sass'
 import routing from '../../config/routing';
+import {TimelineLite} from "gsap";
+import {main} from "../../config/main";
 
 
 class Layout extends Component {
@@ -14,6 +15,22 @@ class Layout extends Component {
       burgerActive: true,
       menuActive: true,
     };
+    this.home = null;
+    this.portfolio = null;
+    this.tutorials = null;
+    this.contact = null;
+    this.navOptions = null;
+    this.myTween = new TimelineLite({paused: true})
+  }
+
+  componentDidMount() {
+    this.myTween
+    // .from(this.home, 0.5, {y: -30, opacity: 0})
+    // .from(this.portfolio, 0., {y: -30, opacity: 0})
+    // .from(this.tutorials, 0.5, {y: -30, opacity: 0})
+    // .from(this.contact, 0.5, {y: -30, opacity: 0})
+      .from(this.navOptions, 0.5, {y: 30, opacity: 0})
+      .play();
   }
 
   toggleStyles = (event) => {
@@ -25,10 +42,10 @@ class Layout extends Component {
     return (
       <div className="dark-background">
         <head>
-          <title>Jack Hanley IO</title>
+          <title>{main.title}</title>
         </head>
         <header>
-          <nav className="navbar is-fixed-top dark-background" role="navigation" aria-label="main navigation">
+          <nav className="navbar dark-background" role="navigation" aria-label="main navigation">
 
             <div className="navbar-brand">
               <Link prefetch href="/">
@@ -48,9 +65,9 @@ class Layout extends Component {
 
 
             <div id="navbarmenu" className="navbar-menu dark-background">
-              <div className="navbar-start">
+              <div className="navbar-start" ref={r => this.navOptions = r}>
                 {routing.routes.map(route => (
-                  <Link prefetch href={route.path}>
+                  <Link prefetch href={route.path} ref={r => this[route.name] = r}>
                     <a className="navbar-item primary-font-color">{route.label}</a>
                   </Link>
                 ))}

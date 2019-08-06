@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import Layout from "../components/Layout/Layout";
 import {home} from "../config/main";
-import {TweenLite, TimelineLite} from "gsap";
+import {TimelineLite} from "gsap";
+import Button from "../components/Button/Button";
 
 class Index extends Component {
 
@@ -12,7 +13,7 @@ class Index extends Component {
     this.title = null;
     this.subtitle = null;
     this.profile = null;
-    this.summary = null;
+    this.button = null;
     this.myTween = new TimelineLite({paused: true});
   }
 
@@ -21,7 +22,8 @@ class Index extends Component {
       .from(this.greeting, 0.5, {y: 30, opacity: 0})
       .from(this.title, 0.3, {y: 30, opacity: 0})
       .from(this.subtitle, 0.3, {y: 30, opacity: 0})
-      .from(this.profile, 0.3, {y: 30, opacity: 0})
+      .from(this.summary, 0.3, {y: 30, opacity: 0})
+      .from(this.button, 0.3, {y: 30, opacity: 0})
       .play();
   }
 
@@ -29,30 +31,34 @@ class Index extends Component {
     return (
       <Layout>
 
-        {/*<section className="section section-padding">
-          <nav className="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">Components</a></li>
-              <li className="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
-            </ul>
-          </nav>
-        </section>*/}
-
-
-        <section className="section fixed-nav-padding">
+        <section className="section fixed-nav-padding first-section">
           <div className="container format-text">
-            <h5 className="primary-font-color code-font" ref={r => this.greeting = r}>{home.greeting}</h5>
-            <h1 className="title secondary-font-color" ref={r => this.title = r}>{home.name}</h1>
-            <h1 className="title dull-font-color" ref={r => this.subtitle = r}>{home.title}</h1>
 
-            <figure className="image is-128x128 is-centered" ref={r => this.profile = r}>
-              {/*<img className="is-rounded" src="../static/profile.png"/>*/}
+            <h1 className="primary-font-color code-font" ref={r => this.greeting = r}>{home.greeting}</h1>
+
+            <h1 className="title-text secondary-font-color title-text" ref={r => this.title = r}>{home.name}</h1>
+
+            <h1 className="title-text dull-font-color" ref={r => this.subtitle = r}>{home.title}</h1>
+
+
+            <p className="default-text dull-font-color" ref={r => this.summary = r}>{home.summary}</p>
+
+
+            {/*<figure className="image is-128x128 is-centered" ref={r => this.profile = r}>
+              <img className="is-rounded" src="../static/profile.png"/>
               <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
-            </figure>
+            </figure>*/}
+
+            <div ref={r => this.button = r} style={{'margin-top': '3rem'}}>
+              <Button label="More Info."/>
+            </div>
 
           </div>
+        </section>
+
+        <section className="section">
+
+
         </section>
 
         {/*        <section className="section hero is-primary">

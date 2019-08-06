@@ -10,8 +10,8 @@ export default class Error extends React.Component {
   render() {
     return (
       <Layout>
-        <section className="container has-text-centered">
-          <p>
+        <section className="container has-text-centered fixed-nav-padding">
+          <p className="primary-font-color">
             <span>
             {this.props.statusCode
               ? <span>A server error occurred: <b>{this.props.statusCode}.</b> </span>
