@@ -1,5 +1,6 @@
 @import "../node_modules/bulma/bulma.sass"
 
+
 @mixin small-screen
   @media (max-width: 62.5rem)
     @content
@@ -66,7 +67,24 @@
 
 .first-section
   height: calc(100vh - 3.25rem)
-  .container
-    position: relative
-    top: 50%
-    transform: translateY(-50%)
+  @media (min-height: 550px)
+    .container
+      position: relative
+      top: 50%
+      transform: translateY(-50%)
+
+.divider
+  overflow: hidden
+  .equals
+    white-space: nowrap
+    width: 40%
+    overflow: hidden
+    text-overflow: clip
+    text-align: left
+  .first
+    float: left
+  .second
+    float: left
+    overflow: hidden
+  .third
+    overflow: hidden

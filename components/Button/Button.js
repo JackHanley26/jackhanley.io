@@ -8,7 +8,7 @@ class Button extends Component {
 
   render() {
     return (
-      <div className="styled-button">
+      <div className="styled-button" onClick={this.props.onClick}>
         {this.props.label}
       </div>
     )
@@ -16,7 +16,8 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func
 };
 
 export default Button;
