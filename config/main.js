@@ -85,6 +85,11 @@ export const techStack = {
       link: "https://redux-saga.js.org/"
     },
     {
+      name: "next",
+      label: "NextJS",
+      link: "https://nextjs.org"
+    },
+    {
       name: "angular",
       label: "AngularJS",
       link: "https://angularjs.org/"

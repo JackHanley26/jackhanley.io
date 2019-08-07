@@ -6,22 +6,30 @@ import Button from "../components/Button/Button";
 import Divider from "../components/Divider/Divider";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCode, faTools, faBook, faTerminal, faCaretRight} from "@fortawesome/free-solid-svg-icons";
+import app from '../package';
+import Footer from "../components/Footer/Footer";
 
 class Index extends Component {
 
   constructor(props) {
     super(props);
 
-    this.greeting = null;
-    this.title = null;
-    this.subtitle = null;
-    this.profile = null;
-    this.button = null;
-    this.myTween = new TimelineLite({paused: true});
+    this.greeting = React.createRef();
+    this.title = React.createRef();
+    this.subtitle = React.createRef();
+    this.profile = React.createRef();
+    this.button = React.createRef();
+    this.landingTween = new TimelineLite({paused: true});
+
+    this.languages = React.createRef();
+    this.frameworks = React.createRef();
+    this.libraries = React.createRef();
+    this.others = React.createRef();
+    this.techStackTween = new TimelineLite({paused: true});
   }
 
   componentDidMount() {
-    this.myTween
+    this.landingTween
       .delay(0.5)
       .from(this.greeting, 0.7, {y: 30, opacity: 0})
       .from(this.title, 0.3, {y: 30, opacity: 0})
@@ -90,8 +98,7 @@ class Index extends Component {
 
             <div className="columns is-mobile is-multiline">
 
-
-              <div className="column tech-column bright-font-color">
+              <div className="column tech-column bright-font-color" ref={div => this.languages = div}>
                 <FontAwesomeIcon icon={faCode}/>
                 <span className="tech-title">Languages</span>
                 <div className="tech-list dull-font-color">
@@ -106,7 +113,7 @@ class Index extends Component {
                 </div>
               </div>
 
-              <div className="column tech-column bright-font-color">
+              <div className="column tech-column bright-font-color" ref={div => this.languages = div}>
                 <FontAwesomeIcon icon={faTools}/>
                 <span className="tech-title">Frameworks</span>
                 <div className="tech-list dull-font-color">
@@ -121,7 +128,7 @@ class Index extends Component {
                 </div>
               </div>
 
-              <div className="column tech-column bright-font-color">
+              <div className="column tech-column bright-font-color" ref={div => this.languages = div}>
                 <FontAwesomeIcon icon={faBook}/>
                 <span className="tech-title">Libraries</span>
                 <div className="tech-list dull-font-color">
@@ -136,7 +143,7 @@ class Index extends Component {
                 </div>
               </div>
 
-              <div className="column tech-column bright-font-color">
+              <div className="column tech-column bright-font-color" ref={div => this.languages = div}>
                 <FontAwesomeIcon icon={faTerminal}/>
                 <span className="tech-title">Other</span>
                 <div className="tech-list dull-font-color">
@@ -155,6 +162,17 @@ class Index extends Component {
 
           </div>
         </section>
+
+        <section id="experience" className="section">
+          <div className="container">
+
+            <Divider label={'Experience'}/>
+
+          </div>
+        </section>
+
+
+       <Footer/>
 
       </Layout>
     )
