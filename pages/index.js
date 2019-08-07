@@ -88,10 +88,10 @@ class Index extends Component {
 
             <Divider label={'Tech stack'}/>
 
-            <div className="columns is-mobile is-multiline is-centered">
+            <div className="columns is-mobile is-multiline">
 
 
-              <div className="column bright-font-color is-narrow">
+              <div className="column tech-column bright-font-color">
                 <FontAwesomeIcon icon={faCode}/>
                 <span className="tech-title">Languages</span>
                 <div className="tech-list dull-font-color">
@@ -106,7 +106,7 @@ class Index extends Component {
                 </div>
               </div>
 
-              <div className="column bright-font-color is-narrow">
+              <div className="column tech-column bright-font-color">
                 <FontAwesomeIcon icon={faTools}/>
                 <span className="tech-title">Frameworks</span>
                 <div className="tech-list dull-font-color">
@@ -121,7 +121,7 @@ class Index extends Component {
                 </div>
               </div>
 
-              <div className="column bright-font-color is-narrow">
+              <div className="column tech-column bright-font-color">
                 <FontAwesomeIcon icon={faBook}/>
                 <span className="tech-title">Libraries</span>
                 <div className="tech-list dull-font-color">
@@ -136,7 +136,7 @@ class Index extends Component {
                 </div>
               </div>
 
-              <div className="bright-font-color column is-narrow">
+              <div className="column tech-column bright-font-color">
                 <FontAwesomeIcon icon={faTerminal}/>
                 <span className="tech-title">Other</span>
                 <div className="tech-list dull-font-color">
