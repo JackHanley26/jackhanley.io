@@ -1,5 +1,8 @@
 @import "../node_modules/bulma/bulma.sass"
 
+$primary: #FFE300
+$bright: rgb(230, 241, 255)
+$dull: rgb(138, 146, 173)
 
 @mixin small-screen
   @media (max-width: 62.5rem)
@@ -8,6 +11,12 @@
 @mixin large-screen
   @media (min-width: 62.55rem)
     @content
+
+.is-horizontal-center
+  justify-content: center
+//.is-vertical-center
+
+
 
 
 .fixed-nav-padding
@@ -20,13 +29,13 @@
 //background-color: #535454 // this is from Adobe
 
 .primary-font-color
-  color: #FFE300
+  color: $primary
 
-.secondary-font-color
-  color: rgb(230, 241, 255)
+.bright-font-color
+  color: $bright
 
 .dull-font-color
-  color: rgb(138, 146, 173)
+  color: $dull
 
 .code-font
   font-size: 14px
@@ -37,6 +46,9 @@
 
 .centered-text
   text-align: center
+
+.button-wrapper
+  padding: 3rem 0 3rem 0
 
 .styled-button
   height: 3.5rem
@@ -75,16 +87,36 @@
 
 .divider
   overflow: hidden
+
   .equals
     white-space: nowrap
     width: 40%
     overflow: hidden
     text-overflow: clip
     text-align: left
+
   .first
     float: left
+
   .second
     float: left
     overflow: hidden
+
   .third
     overflow: hidden
+
+.tech-title
+  padding: 0.5rem
+  font-size: 1.25rem
+
+a
+  text-decoration: none
+  color: inherit
+.tech-list
+  .tech-item
+    text-decoration: none
+    padding-left: 0.5rem
+    transition: 0.5s
+    cursor: pointer
+    &:hover
+      color: $bright
