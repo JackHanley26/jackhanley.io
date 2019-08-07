@@ -4,7 +4,11 @@ $primary: #FFE300
 $bright: rgb(230, 241, 255)
 $dull: rgb(138, 146, 173)
 
-@mixin mobile
+@mixin small-mobile
+  @media(max-width: 400px)
+    @content
+
+@mixin large-mobile
   @media(max-width: 600px)
     @content
 
@@ -102,12 +106,10 @@ $dull: rgb(138, 146, 173)
       width: 42%
     @include small-screen
       width: 40%
-    @include mobile
+    @include large-mobile
       width: 35%
-
-
-
-
+    @include small-mobile
+      width: 30%
 
   .first
     float: left
@@ -126,6 +128,7 @@ $dull: rgb(138, 146, 173)
 a
   text-decoration: none
   color: inherit
+
 .tech-list
   .tech-item
     text-decoration: none
@@ -147,4 +150,4 @@ a
     overflow: hidden
 
 .tech-column
-  min-width: 12rem
+  min-width: 11rem
