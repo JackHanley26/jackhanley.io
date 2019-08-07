@@ -9,6 +9,7 @@ export const home = {
   greeting: "hi, my name is",
   name: "Jack Hanley",
   title: "I build things with code.",
+  // summary: "I'm a <span class='bright-font-color'>software engineer</span> from Ireland based in <span class='bright-font-color'>New York, NY</span>",
   summary: "I'm a software engineer from Ireland based in New York, NY",
   aboutMe: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
 };

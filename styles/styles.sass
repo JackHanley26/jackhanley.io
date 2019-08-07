@@ -17,8 +17,6 @@ $dull: rgb(138, 146, 173)
 //.is-vertical-center
 
 
-
-
 .fixed-nav-padding
   //padding-top: 3.25rem
   padding-top: 6.5rem
@@ -36,6 +34,10 @@ $dull: rgb(138, 146, 173)
 
 .dull-font-color
   color: $dull
+
+.underline
+  text-decoration: underline
+  text-decoration-color: $primary
 
 .code-font
   font-size: 14px
@@ -120,3 +122,17 @@ a
     cursor: pointer
     &:hover
       color: $bright
+
+
+.side-by-side-container
+  overflow: hidden
+  .side-by-side-item-1
+    float: left
+  .side-by-side-item-2
+    float: left
+    overflow: hidden
+  .side-by-side-item-3
+    overflow: hidden
+
+.tech-column
+  max-width: 25%

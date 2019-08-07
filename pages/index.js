@@ -35,9 +35,10 @@ class Index extends Component {
     window.location.href = `mailto:${email}`;
   }
 
-  static openLinkInTab(url){
-    window.open(url,'_blank');
+  static openLinkInTab(url) {
+    window.open(url, '_blank');
   }
+
 
   render() {
     return (
@@ -52,7 +53,8 @@ class Index extends Component {
 
             <h1 className="title-text dull-font-color" ref={r => this.subtitle = r}>{home.title}</h1>
 
-            <p className="default-text dull-font-color" ref={r => this.summary = r}>{home.summary}</p>
+            <p className="default-text dull-font-color" ref={r => this.summary = r}
+               dangerouslySetInnerHTML={{__html: home.summary}}></p>
 
             <div className="button-wrapper" ref={r => this.button = r}>
               <Button label="Get in touch." onClick={Index.openMail}/>
@@ -83,74 +85,69 @@ class Index extends Component {
 
         <section id="technologies" className="section">
           <div className="container">
+
             <Divider label={'Tech stack'}/>
 
-            <div className="columns">
+            <div className="columns is-mobile is-multiline is-centered">
 
-              <div className="column">
-                <div className="bright-font-color">
-                  <FontAwesomeIcon icon={faCode}/>
-                  <span className="tech-title">Languages</span>
-                  <div className="tech-list dull-font-color">
-                    <ul>
-                      {techStack.languages.map(item => (
-                        <li>
-                          <span className="code-font primary-font-color">#</span>
-                          <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="column">
-                <div className="bright-font-color">
-                  <FontAwesomeIcon icon={faTools}/>
-                  <span className="tech-title">Frameworks</span>
-                  <div className="tech-list dull-font-color">
-                    <ul>
-                      {techStack.frameworks.map(item => (
-                        <li>
-                          <span className="code-font primary-font-color">#</span>
-                          <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+
+              <div className="column bright-font-color is-narrow">
+                <FontAwesomeIcon icon={faCode}/>
+                <span className="tech-title">Languages</span>
+                <div className="tech-list dull-font-color">
+                  <ul>
+                    {techStack.languages.map(item => (
+                      <li>
+                        <span className="code-font primary-font-color">#</span>
+                        <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              <div className="column">
-                <div className="bright-font-color">
-                  <FontAwesomeIcon icon={faBook}/>
-                  <span className="tech-title">Libraries</span>
-                  <div className="tech-list dull-font-color">
-                    <ul>
-                      {techStack.libraries.map(item => (
-                        <li>
-                          <span className="code-font primary-font-color">#</span>
-                          <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div className="column bright-font-color is-narrow">
+                <FontAwesomeIcon icon={faTools}/>
+                <span className="tech-title">Frameworks</span>
+                <div className="tech-list dull-font-color">
+                  <ul>
+                    {techStack.frameworks.map(item => (
+                      <li>
+                        <span className="code-font primary-font-color">#</span>
+                        <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              <div className="column">
-                <div className="bright-font-color">
-                  <FontAwesomeIcon icon={faTerminal}/>
-                  <span className="tech-title">Other</span>
-                  <div className="tech-list dull-font-color">
-                    <ul>
-                      {techStack.other.map(item => (
-                        <li>
-                          <span className="code-font primary-font-color">#</span>
-                          <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div className="column bright-font-color is-narrow">
+                <FontAwesomeIcon icon={faBook}/>
+                <span className="tech-title">Libraries</span>
+                <div className="tech-list dull-font-color">
+                  <ul>
+                    {techStack.libraries.map(item => (
+                      <li>
+                        <span className="code-font primary-font-color">#</span>
+                        <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bright-font-color column is-narrow">
+                <FontAwesomeIcon icon={faTerminal}/>
+                <span className="tech-title">Other</span>
+                <div className="tech-list dull-font-color">
+                  <ul>
+                    {techStack.other.map(item => (
+                      <li>
+                        <span className="code-font primary-font-color">#</span>
+                        <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
