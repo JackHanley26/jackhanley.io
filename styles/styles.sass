@@ -4,6 +4,10 @@ $primary: #FFE300
 $bright: rgb(230, 241, 255)
 $dull: rgb(138, 146, 173)
 
+@mixin mobile
+  @media(max-width: 600px)
+    @content
+
 @mixin small-screen
   @media (max-width: 62.5rem)
     @content
@@ -70,11 +74,10 @@ $dull: rgb(138, 146, 173)
 
 .title-text
   font-weight: bold
-  @include small-screen
-    font-size: 3rem
-
   @include large-screen
     font-size: 4.5rem
+  @include small-screen
+    font-size: 3rem
 
 .default-text
   font-size: 1rem
@@ -92,10 +95,19 @@ $dull: rgb(138, 146, 173)
 
   .equals
     white-space: nowrap
-    width: 40%
     overflow: hidden
     text-overflow: clip
     text-align: left
+    @include large-screen
+      width: 42%
+    @include small-screen
+      width: 40%
+    @include mobile
+      width: 35%
+
+
+
+
 
   .first
     float: left
