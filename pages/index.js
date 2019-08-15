@@ -4,15 +4,24 @@ import {home, email, techStack} from "../config/main";
 import {TimelineLite} from "gsap";
 import Button from "../components/Button/Button";
 import Divider from "../components/Divider/Divider";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCode, faTools, faBook, faTerminal, faCaretRight} from "@fortawesome/free-solid-svg-icons";
-import app from '../package';
 import Footer from "../components/Footer/Footer";
+import TechStackCategory from "../components/TechStackCategory/TechStackCategory";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCode, faTools, faBook, faTerminal, faDatabase, faCaretRight} from "@fortawesome/free-solid-svg-icons";
+import * as _ from "lodash";
+import JobContainer from "../components/JobContainer/JobContainer";
 
 class Index extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      techStack: {
+        listLimit: 6,
+        viewMore: false
+      }
+    };
 
     this.greeting = React.createRef();
     this.title = React.createRef();
@@ -39,6 +48,11 @@ class Index extends Component {
       .play();
   }
 
+  techStackViewMore = () => {
+    this.setState({techStack: {...this.state.techStack, viewMore: true, listLimit: 100}})
+  };
+
+
   static openMail() {
     window.location.href = `mailto:${email}`;
   }
@@ -47,10 +61,11 @@ class Index extends Component {
     window.open(url, '_blank');
   }
 
-
   render() {
     return (
       <Layout>
+
+        {/* LANDING SECTION */}
 
         <section id="landing-section" className="section fixed-nav-padding first-section">
           <div className="container format-text">
@@ -65,13 +80,14 @@ class Index extends Component {
                dangerouslySetInnerHTML={{__html: home.summary}}></p>
 
             <div className="button-wrapper" ref={r => this.button = r}>
-              <Button label="Get in touch." onClick={Index.openMail}/>
+              <Button label="Get in touch." size="lg" onClick={Index.openMail}/>
             </div>
 
           </div>
         </section>
 
 
+        {/* ABOUT ME SECTION */}
         <section id="about-me" className="section">
           <div className="container">
             <Divider label={'About me'}/>
@@ -91,89 +107,85 @@ class Index extends Component {
           </div>
         </section>
 
+        {/* TECH STACK SECTION */}
         <section id="technologies" className="section">
           <div className="container">
 
             <Divider label={'Tech stack'}/>
 
-            <div className="columns is-mobile is-multiline">
+            <div className={`columns is-mobile is-multiline ${!this.state.techStack.viewMore && 'tech-ul'}`}>
 
               <div className="column tech-column bright-font-color" ref={div => this.languages = div}>
-                <FontAwesomeIcon icon={faCode}/>
-                <span className="tech-title">Languages</span>
-                <div className="tech-list dull-font-color">
-                  <ul>
-                    {techStack.languages.map(item => (
-                      <li>
-                        <span className="code-font primary-font-color">#</span>
-                        <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <TechStackCategory
+                  title={'Languages'}
+                  icon={faCode}
+                  fadeItems={!this.state.techStack.viewMore}
+                  items={_.slice(techStack.languages, 0, this.state.techStack.listLimit)}
+                />
               </div>
 
-              <div className="column tech-column bright-font-color" ref={div => this.languages = div}>
-                <FontAwesomeIcon icon={faTools}/>
-                <span className="tech-title">Frameworks</span>
-                <div className="tech-list dull-font-color">
-                  <ul>
-                    {techStack.frameworks.map(item => (
-                      <li>
-                        <span className="code-font primary-font-color">#</span>
-                        <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="column tech-column bright-font-color" ref={div => this.frameworks = div}>
+                <TechStackCategory
+                  title={'Frameworks'}
+                  icon={faTools}
+                  fadeItems={!this.state.techStack.viewMore}
+                  items={_.slice(techStack.frameworks, 0, this.state.techStack.listLimit)}
+                />
               </div>
 
-              <div className="column tech-column bright-font-color" ref={div => this.languages = div}>
-                <FontAwesomeIcon icon={faBook}/>
-                <span className="tech-title">Libraries</span>
-                <div className="tech-list dull-font-color">
-                  <ul>
-                    {techStack.libraries.map(item => (
-                      <li>
-                        <span className="code-font primary-font-color">#</span>
-                        <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="column tech-column bright-font-color" ref={div => this.libraries = div}>
+                <TechStackCategory
+                  title={'Libraries'}
+                  icon={faBook}
+                  fadeItems={!this.state.techStack.viewMore}
+                  items={_.slice(techStack.libraries, 0, this.state.techStack.listLimit)}
+                />
+              </div>
+              <div className="column tech-column bright-font-color" ref={div => this.databases = div}>
+                <TechStackCategory
+                  title={'Databases'}
+                  icon={faDatabase}
+                  fadeItems={!this.state.techStack.viewMore}
+                  items={_.slice(techStack.databases, 0, this.state.techStack.listLimit)}
+                />
               </div>
 
-              <div className="column tech-column bright-font-color" ref={div => this.languages = div}>
-                <FontAwesomeIcon icon={faTerminal}/>
-                <span className="tech-title">Other</span>
-                <div className="tech-list dull-font-color">
-                  <ul>
-                    {techStack.other.map(item => (
-                      <li>
-                        <span className="code-font primary-font-color">#</span>
-                        <a className="tech-item code-font" href={item.link} target="_blank">{item.label}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="column tech-column bright-font-color" ref={div => this.others = div}>
+                <TechStackCategory
+                  title={'Other'}
+                  icon={faTerminal}
+                  fadeItems={!this.state.techStack.viewMore}
+                  items={_.slice(techStack.other, 0, this.state.techStack.listLimit)}
+                />
               </div>
 
             </div>
 
+            {!this.state.techStack.viewMore && (
+              <div className="container has-text-centered">
+                <Button label={'View all'} size='md' onClick={this.techStackViewMore}/>
+              </div>
+            )}
           </div>
         </section>
 
+        {/* EXPERIENCE SECTION */}
         <section id="experience" className="section">
           <div className="container">
 
             <Divider label={'Experience'}/>
 
+            <JobContainer />
+
           </div>
         </section>
 
 
-       <Footer/>
+        {/* FOOTER SECTION*/}
+        <Footer/>
 
+
+        {/*  END OF LINE :() */}
       </Layout>
     )
   }

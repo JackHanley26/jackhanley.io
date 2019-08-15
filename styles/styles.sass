@@ -1,8 +1,10 @@
 @import "../node_modules/bulma/bulma.sass"
 
-$primary: #FFE300
+//$primary: #FFE300
+$primary: rgb(255, 227, 0)
 $bright: rgb(230, 241, 255)
 $dull: rgb(138, 146, 173)
+$dark: rgb(10, 25, 47)
 
 @mixin small-mobile
   @media(max-width: 400px)
@@ -31,7 +33,7 @@ $dull: rgb(138, 146, 173)
 // double the nav bar size
 
 .dark-background
-  background-color: rgb(10, 25, 47)
+  background-color: $dark
 //background-color: #535454 // this is from Adobe
 
 .primary-font-color
@@ -61,9 +63,6 @@ $dull: rgb(138, 146, 173)
   padding: 3rem 0 3rem 0
 
 .styled-button
-  height: 3.5rem
-  line-height: 3.5rem
-  width: 8rem
   border: 1px solid #FFE300
   color: #FFE300
   border-radius: 3px
@@ -75,6 +74,23 @@ $dull: rgb(138, 146, 173)
   &:hover
     background-color: rgb(22, 41, 58)
 
+.styled-button-small
+  display: inline-block
+  height: 1.75rem
+  width: 4rem
+  line-height: 1.75rem
+
+.styled-button-medium
+  display: inline-block
+  height: 1.75rem
+  width: 8rem
+  line-height: 1.75rem
+
+.styled-button-large
+  display: inline-block
+  height: 3.5rem
+  line-height: 3.5rem
+  width: 8rem
 
 .title-text
   font-weight: bold
@@ -95,31 +111,36 @@ $dull: rgb(138, 146, 173)
       transform: translateY(-50%)
 
 .divider
+  padding: 2rem 0 2rem 0
   overflow: hidden
+  display: inline-block
+  width: 100%
 
-  .equals
-    white-space: nowrap
-    overflow: hidden
-    text-overflow: clip
-    text-align: left
-    @include large-screen
-      width: 42%
-    @include small-screen
-      width: 40%
-    @include large-mobile
-      width: 35%
-    @include small-mobile
-      width: 30%
+  .slash-slash
+    font-weight: bold
+    z-index: 10
+    background: $dark
+    position: absolute
+    left: 0
+    top: 1.5rem
 
-  .first
-    float: left
+  .dashed
+    position: absolute
+    width: 100%
+    height: 6px
+    border-top: 1.5px dashed
+    border-bottom: 1.5px dashed
 
-  .second
-    float: left
-    overflow: hidden
-
-  .third
-    overflow: hidden
+  .divider-title
+    text-align: center
+    left: 0
+    right: 0
+    margin-left: auto
+    margin-right: auto
+    top: 1.5rem
+    z-index: 11
+    background: $dark
+    position: absolute
 
 .tech-title
   padding: 0.5rem
@@ -129,6 +150,7 @@ a
   text-decoration: none
   color: inherit
   transition: 0.5s
+
   &:hover
     color: $bright
 
@@ -138,20 +160,49 @@ a
     text-decoration: none
     padding-left: 0.5rem
     transition: 0.5s
-    cursor: pointer
-    &:hover
-      color: $bright
+
+.highlight-on-hover
+  cursor: pointer
+
+  &:hover
+    color: $bright
+
+.fade-list-end
+  position: relative
+
+  &:after
+    content: ""
+    position: absolute
+    z-index: 1
+    bottom: 0
+    left: 0
+    pointer-events: none
+    background-image: linear-gradient(to bottom, rgba(10, 25, 47, 0), rgba(10, 25, 47, 1) 90%)
+    //background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 90%)
+    width: 100%
+    height: 4em
 
 
 .side-by-side-container
   overflow: hidden
+
   .side-by-side-item-1
     float: left
+
   .side-by-side-item-2
     float: left
     overflow: hidden
+
   .side-by-side-item-3
     overflow: hidden
 
 .tech-column
   min-width: 11rem
+
+.jobs-tabs
+
+
+  .tab-item
+    color: $dull
+    &.is-active
+      color: $primary

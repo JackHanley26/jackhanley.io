@@ -28,14 +28,19 @@ export const email = "jackhanley26@hotmail.com";
 export const techStack = {
   languages: [
     {
+      name: "node",
+      label: "NodeJS",
+      link: "https://nodejs.org/en/about/"
+    },
+    {
       name: "javascript",
       label: "JavaScript (ES6+)",
       link: "https://www.javascript.com/",
     },
     {
-      name: "node",
-      label: "NodeJS",
-      link: "https://nodejs.org/en/about/"
+      name: "typescript",
+      label: "Typescript",
+      link: "",
     },
     {
       name: "python",
@@ -158,8 +163,8 @@ export const techStack = {
       link: "https://lodash.com/"
     },
     {
-      name: "",
-      label: "",
+      name: "bootstrap",
+      label: "Bootstrap",
       link: ""
     },
     {
@@ -173,7 +178,7 @@ export const techStack = {
       link: "https://keras.io/"
     },
   ],
-  other:[
+  databases:[
     {
       name: "cloudant",
       label: "Cloudant (NoSQL)",
@@ -209,6 +214,9 @@ export const techStack = {
       label: "Redis",
       link: ""
     },
+  ],
+
+  other:[
     {
       name: "rest",
       label: "REST APIs",
@@ -228,6 +236,36 @@ export const techStack = {
       name: "mqtt",
       label: "MQTT",
       link: "https://mqtt.org"
+    },
+    {
+      name: "kubernetes",
+      label: "Kubernetes",
+      link: ""
+    },
+    {
+      name: "kibana",
+      label: "Kibana",
+      link: ""
+    },
+    {
+      name: "siddhi",
+      label: "SiddhiQL",
+      link: "https://siddhi.io"
+    },
+    {
+      name: "jenkins",
+      label: "Jenkins",
+      link: ""
+    },
+    {
+      name: "linuxunix",
+      label: "Linux & Unix",
+      link: ""
+    },
+    {
+      name: "jetbrains",
+      label: "JetBrains IDEs",
+      link: ""
     },
     {
       name: "",

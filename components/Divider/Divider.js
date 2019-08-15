@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {main} from "../../config/main";
-import {range} from 'lodash';
 
 class Divider extends Component {
   constructor(props) {
     super(props);
   }
 
-  render() {
-    const equals = (count) => range(count).reduce((s, v) => (`${s}=`), "");
+  static calWidth(cars) {
+    const val = cars * 0.7; // this is rough calc
+    return {width: `${val}rem`};
+  }
 
+  render() {
     return (
-      <div className="code-font divider" style={{'padding': '1rem 0 1rem 0'}} ref={div => this.ref = div}>
-        <div className="equals first">{`//${equals(100)}`} </div>
-        <div className="second primary-font-color">&nbsp;{this.props.label}&nbsp;</div>
-        <div className="equals third">{` ${equals(100)}`}</div>
+      <div className="code-font divider" ref={div => this.ref = div}>
+        <span className="slash-slash">//</span>
+        <div className="dashed"/>
+        <div className="divider-title primary-font-color" style={{...Divider.calWidth(this.props.label.length)}}>
+          {this.props.label}
+        </div>
       </div>
     )
   }
